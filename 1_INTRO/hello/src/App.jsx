@@ -1,14 +1,13 @@
-import './App.css';
-import logo from './logo.svg';
+import "./App.css";
+import FirstComponent from "./components/components/FirstComponent";
+import logo from "./logo.svg";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Olá, mundo!
-        </p>
+        <p>Olá, mundo!</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,6 +16,9 @@ function App() {
         >
           Learn React
         </a>
+        <span className="titulo">Curso de ReactJs</span>
+
+        <FirstComponent></FirstComponent>
       </header>
     </div>
   );
