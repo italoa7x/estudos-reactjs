@@ -1,0 +1,1 @@
+## Para rodar o projeto é preciso criar um projeto no firebase e importar as credencias no arquivo firebase/config.js

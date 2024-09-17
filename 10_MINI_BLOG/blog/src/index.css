@@ -1,0 +1,136 @@
+body {
+  background-color: #f6fcff;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Montserrat", sans-serif;
+  color: #AAA;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+a,
+nav button {
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  transition: 0.4;
+  font-size: 1em;
+  cursor: pointer;
+  font-family: "Montserra", sans-serif;
+}
+
+a:hover,
+nav button {
+  color: #bbb;
+}
+
+form {
+  max-width: 40%;
+  margin: 0 auto;
+}
+label{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+label span {
+  margin-bottom: .3em;
+  font-weight: bold;
+  text-align: left;
+
+}
+input, textarea{
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  padding: .8em 0;
+  background-color: transparent;
+}
+
+
+
+.btn{
+  background-color: #1A8918;
+  color: #FFFFFF;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 120px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  margin-top: .5em;
+}
+
+.btn.btn-dark {
+  background-color: #000000;
+  border-radius: 0;
+
+}
+
+.btn.btn-outline{
+  background-color: transparent;
+  border-radius: 0;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 7px 30px;
+}
+
+.btn:hover{
+  background-color: #0F730C;
+  color: #FFFFFF;
+}
+
+.btn.btn-outline:hover{
+  background-color: #000000;
+}
+
+.btn.btn-danger:hover{
+  background-color: #DC3545;
+
+}
+
+button[disabled]{
+  background-color: #AAA;
+
+}
+
+button[disabled]:hover{
+  background-color: #AAA;
+  cursor: not-allowed;
+}
+
+.error{
+  color: #721C24 !important;
+  background-color: #F8D7DA;
+  border: 1px solid #F5C6Cb;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+
+}
+
+
+
+.noposts{
+  text-align: center;
+}
+
+.noposts p {
+  margin-bottom: 1.5em;
+}
+
+.noposts a {
+  padding: 10px 25px;
+}
