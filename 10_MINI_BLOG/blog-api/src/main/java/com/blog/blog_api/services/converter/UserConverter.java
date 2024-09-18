@@ -10,7 +10,7 @@ import com.blog.blog_api.models.User;
 public abstract class UserConverter {
 
     public static User convertInputDtoToModel(UserInputDto user) {
-        return new User(null, user.getEmail(), user.getUsername(), user.getPassword());
+        return new User(null, user.getEmail(), user.getUsername(), user.getPassword(), user.getRole());
     }
 
     public static UserOutputDto convertInputToOutput(UserInputDto userInput) {

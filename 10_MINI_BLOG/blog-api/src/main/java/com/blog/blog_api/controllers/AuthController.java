@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.blog.blog_api.dto.input.AuthInputDto;
 import com.blog.blog_api.dto.input.UserInputDto;
+import com.blog.blog_api.dto.output.AuthTokenDto;
 import com.blog.blog_api.dto.output.UserOutputDto;
+import com.blog.blog_api.models.User;
+import com.blog.blog_api.services.TokenService;
 import com.blog.blog_api.services.UserService;
 
 @RestController
@@ -26,15 +29,24 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
-    public ResponseEntity<Authentication> login(@RequestBody @Validated AuthInputDto authInputDto) {
+    public ResponseEntity<AuthTokenDto> login(@RequestBody @Validated AuthInputDto authInputDto) {
         UsernamePasswordAuthenticationToken userAndPassword = new UsernamePasswordAuthenticationToken(
                 authInputDto.getUsername(),
                 authInputDto.getPassword());
-    
-        Authentication auth = this.authenticationManager.authenticate(userAndPassword);
 
-        return ResponseEntity.ok().body(auth);
+        try {
+            Authentication auth = this.authenticationManager.authenticate(userAndPassword);
+            var token = this.tokenService.generateToken((User) auth.getPrincipal());
+
+            return ResponseEntity.ok(new AuthTokenDto(token));
+        } catch (Exception e) {
+            throw new RuntimeException("Erro on authentication" + e);
+        }
+
     }
 
     @PostMapping("/register")
