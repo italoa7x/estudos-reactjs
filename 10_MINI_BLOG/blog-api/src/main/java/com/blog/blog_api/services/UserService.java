@@ -19,6 +19,7 @@ public class UserService {
 
     public UserOutputDto save(UserInputDto user) {
         user.setPassword(this.encoderService.encoderPassword(user.getPassword()));
+        user.setRole("USER");
         var userCreated = this.repository.save(UserConverter.convertInputDtoToModel(user));
 
         return UserConverter.convertUserToOutput(userCreated);

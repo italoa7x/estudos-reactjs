@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthentication } from "../../hooks/useAutentication";
 import "./styles.css";
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const { login, error: authError, loading } = useAuthentication();
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (authError) {
       setError(authError);
@@ -18,7 +19,7 @@ const Login = () => {
     e.preventDefault();
 
     const user = {
-      email,
+      username,
       password,
     };
 
@@ -27,6 +28,7 @@ const Login = () => {
     if (res) {
       clearError();
       clearForm();
+      navigate("/");
     }
   };
 
@@ -35,7 +37,7 @@ const Login = () => {
   };
 
   const clearForm = () => {
-    setEmail("");
+    setUsername("");
     setPassword("");
   };
 
@@ -45,14 +47,14 @@ const Login = () => {
       <p>Faça o login para criar seus posts</p>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>E-mail:</span>
+          <span>Usuário:</span>
           <input
-            type="email"
-            name="email"
-            placeholder="E-mail do usuário"
+            type="username"
+            name="username"
+            placeholder="Digite seu usuário"
             required
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
           />
         </label>
 

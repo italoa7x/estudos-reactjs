@@ -8,7 +8,12 @@ const Register = () => {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [error, setError] = useState("");
 
-  const { createUser, error: authError, loading } = useAuthentication();
+  const {
+    createUser,
+    error: authError,
+    loading,
+    successCreateAccount,
+  } = useAuthentication();
 
   useEffect(() => {
     if (password && passwordConfirmation && password !== passwordConfirmation) {
@@ -35,9 +40,9 @@ const Register = () => {
 
     const res = await createUser(user);
 
-    if(res){
+    if (res) {
       clearError();
-      clearForm()
+      clearForm();
     }
   };
 
@@ -46,11 +51,11 @@ const Register = () => {
   };
 
   const clearForm = () => {
-    setDisplayName('');
-    setEmail('');
-    setPassword('')
-    setPasswordConfirmation('')
-  }
+    setDisplayName("");
+    setEmail("");
+    setPassword("");
+    setPasswordConfirmation("");
+  };
 
   return (
     <div className="register">
@@ -112,6 +117,10 @@ const Register = () => {
             </button>
           )}
           {error && <p className="error">{error}</p>}
+
+          {successCreateAccount && (
+            <p className="card-success">Usuário criado com sucesso!</p>
+          )}
         </label>
       </form>
     </div>

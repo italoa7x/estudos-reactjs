@@ -121,6 +121,16 @@ button[disabled]:hover{
 
 }
 
+.card-success{
+  background-color: #1A8918 !important;
+  color: #FFFF !important;
+  border: 1px solid #FFFF;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+
+}
+
 
 
 .noposts{

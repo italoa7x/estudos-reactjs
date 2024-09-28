@@ -23,6 +23,7 @@ public class WebSecurityConfig {
 
     @Bean
     SecurityFilterChain configure(HttpSecurity http) throws Exception {
+        http.csrf().and().cors().and().csrf().disable();
         return http.csrf((csrf) -> {
             csrf.disable();
         })
